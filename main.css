@@ -1,7 +1,43 @@
 * { box-sizing: border-box; }
 
+header {
+	height: 200px;
+}
+
+/* Зробив, як міг. Ми такого не вчили */
 body {
 	background-color: lightgray;
+}
+
+button {
+	position: relative;
+}
+
+button::after {
+	content: attr(data-tooltip);
+
+	position: absolute;
+
+	background-color: purple;
+	color: white;
+	padding: 4px 8px;
+	white-space: nowrap;
+
+	border-radius: 10px;
+
+	transform: translateY(0%) translateX(0%);
+
+	opacity: 0;
+
+	transition: 500ms;
+}
+
+button:hover::after {
+	opacity: 1;
+
+	transform: translateY(-150%) translateX(-50%);
+
+	transition: 500ms;
 }
 
 .grid {
@@ -134,4 +170,53 @@ input[type="text"]:focus-visible {
 	width: 20px;
 	text-align: center;
 	color: white;
+}
+
+.bage {
+	position: fixed;
+	bottom: -50px;
+	left: 50px;
+	width: 400px;
+	height: 70px;
+
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 2px;
+	text-align: center;
+
+	background-color: rgb(49, 5, 119);
+	Color: white;
+
+	transform: translateY(0px);
+
+	transition: 500ms;
+}
+
+.buy-list-text {
+	font-weight: bold;
+}
+
+.small-text {
+	font-size: 12px;
+}
+
+.bage:hover {
+	transform: translateY(-40px);
+	background-color: darkmagenta;
+	transition: 500ms;
+}
+
+@media print {
+	.bage {
+		bottom: -20px;
+		border: 2px solid rgb(49, 5, 119);
+		background-color: white;
+		color: rgb(49, 5, 119);
+	}
+
+	.buy-list-text {
+		display: none;
+	}
 }
