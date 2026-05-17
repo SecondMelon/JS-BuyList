@@ -2,15 +2,64 @@
 <html>
 <head lang="uk">
     <meta charset="UTF-8">
-    <title>My Page</title>
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошик Волошановича</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 <body>
-	<span class="product-item">
-		Apple
-		<span class="amount">4</span>
-	</span>
+	<main>
+		<div class="grid">
+			<segment class="items">
+				<table class="first-main-box">
+					<thead>
+						<tr>
+							<th class="find-field"><label><input type="text" name="Назва товару"></label></th>
+							<th class="find-button"><label><button type="submit">Додати</button></label></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="item-name-bought">Помідори</th>
+							<th class="button-less"></th>
+							<th class="item-number">2</th>
+							<th class="button-more"></th>
+							<th class="button-bought"><label><button class="not-bought">Не куплено</button></label></th>
+						</tr>
+						<tr>
+							<th class="item-name">Печиво</th>
+							<th class="button-less"><label><button>-</button></label></th>
+							<th class="item-number">2</th>
+							<th class="button-more"><label><button>+</button></label></th>
+							<th class="button-bought"><label><button class="bought">Куплено</button></label><label><button class="cancel">X</button></label></th>
+						</tr>
+						<tr>
+							<th class="item-name"><label><input type="text" name="Новий товар"></label></th>
+							<th class="button-less-inactive"><label><button>-</button></label></th>
+							<th class="item-number">1</th>
+							<th class="button-more"><label><button>+</button></label></th>
+							<th class="button-bought"><label><button class="bought">Куплено</button></label><label><button class="cancel">X</button></label></th>
+						</tr>
+					</tbody>
+				</table>
+			</segment>
+			<segment class="result">
+				<table class="second-main-box">
+					<tr>
+						<th class="result-text">Залишилося</th>
+					</tr>
+					<tr class="items-left-list">
+						<th class="first-item-left">Печиво <span class="result-number">2</span></th>
+						<th class="second-item-left">Сир <span class="result-number">1</span></th>
+					</tr>
+					<tr>
+						<th class="result-text">Куплено</th>
+					</tr>
+					<tr class="items-bought-list">
+						<th class="first-item-bought">Помідори <span class="result-bought-number">2</span></th>
+					</tr>
+				</table>
+			</segment>
+		</div>
+	</main>
 </body>
 </html>
