@@ -9,53 +9,55 @@
 <body>
 	<main>
 		<div class="grid">
-			<segment class="items">
+			<segment class="items grid-segment">
 				<table class="first-main-box">
 					<thead>
-						<tr>
-							<th class="find-field"><label><input type="text" name="Назва товару"></label></th>
-							<th class="find-button"><label><button type="submit">Додати</button></label></th>
-						</tr>
+						<form>
+							<tr>
+								<th class="find-field"><label><input type="text" name="Назва товару" placeholder="Назва товару" required></label></th>
+								<th class="find-button"><label><button type="submit">Додати</button></label></th>
+							</tr>
+						</form>
 					</thead>
 					<tbody>
 						<tr>
-							<th class="item-name-bought">Помідори</th>
-							<th class="button-less"></th>
-							<th class="item-number">2</th>
-							<th class="button-more"></th>
-							<th class="button-bought"><label><button class="not-bought">Не куплено</button></label></th>
+							<td class="item-name bought">Помідори</td>
+							<td class="button-less"></td>
+							<td class="item-number">2</td>
+							<td class="button-more"></td>
+							<td class="button-bought"><label><button class="not-bought-button">Не куплено</button></label></td>
 						</tr>
 						<tr>
-							<th class="item-name">Печиво</th>
-							<th class="button-less"><label><button>-</button></label></th>
-							<th class="item-number">2</th>
-							<th class="button-more"><label><button>+</button></label></th>
-							<th class="button-bought"><label><button class="bought">Куплено</button></label><label><button class="cancel">X</button></label></th>
+							<td class="item-name">Печиво</td>
+							<td class="button-less"><label><button>-</button></label></td>
+							<td class="item-number">2</td>
+							<td class="button-more"><label><button>+</button></label></td>
+							<td class="button-bought"><label><button class="bought-button">Куплено</button></label><label><button class="cancel">X</button></label></td>
 						</tr>
 						<tr>
-							<th class="item-name"><label><input type="text" name="Новий товар"></label></th>
-							<th class="button-less-inactive"><label><button>-</button></label></th>
-							<th class="item-number">1</th>
-							<th class="button-more"><label><button>+</button></label></th>
-							<th class="button-bought"><label><button class="bought">Куплено</button></label><label><button class="cancel">X</button></label></th>
+							<td class="item-name"><label><input type="text" name="Новий товар" placeholder="Новий товар"></label></td>
+							<td class="button-less inactive"><label><button>-</button></label></td>
+							<td class="item-number">1</td>
+							<td class="button-more"><label><button>+</button></label></td>
+							<td class="button-bought"><label><button class="bought-button">Куплено</button></label><label><button class="cancel">X</button></label></td>
 						</tr>
 					</tbody>
 				</table>
 			</segment>
-			<segment class="result">
+			<segment class="result grid-segment">
 				<table class="second-main-box">
 					<tr>
-						<th class="result-text">Залишилося</th>
+						<td class="result-text">Залишилося</td>
 					</tr>
 					<tr class="items-left-list">
-						<th class="first-item-left">Печиво <span class="result-number">2</span></th>
-						<th class="second-item-left">Сир <span class="result-number">1</span></th>
+						<td class="item-left"><span class="single-item left">Печиво <span class="result-number amount">2</span></span>
+							<span class="single-item left">Сир <span class="result-number amount">1</span></span></td>
 					</tr>
 					<tr>
-						<th class="result-text">Куплено</th>
+						<td class="result-text">Куплено</td>
 					</tr>
 					<tr class="items-bought-list">
-						<th class="first-item-bought">Помідори <span class="result-bought-number">2</span></th>
+						<td><span class="single-item bought">Помідори <span class="result-bought-number amount">2</span></span></td>
 					</tr>
 				</table>
 			</segment>

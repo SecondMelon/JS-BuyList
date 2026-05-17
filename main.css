@@ -1,17 +1,137 @@
-.product-item {
-	background-color: gray;
+* { box-sizing: border-box; }
+
+body {
+	background-color: lightgray;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+@media (max-width: 650px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.grid-segment {
+	background-color: white;
+	border-radius: 6px;
+}
+
+table {
+	width: 100%;
+}
+
+input[type="text"]:focus-visible {
+	border: 4px solid blue;
+}
+
+.find-button button {
+	background-color: blue;
+	color: white;
+	font-size: 16px;
+
+	border-radius: 12px;
+}
+
+.find-button button:focus-visible {
+	background-color: white;
+	color: black;
+	border: 4px solid blue;
+}
+
+.bought {
+	text-decoration: line-through;
+}
+
+.button-less {
+	text-align: right;
+}
+
+.button-less button {
+	background-color: red;
+	color: white;
+	border-radius: 10px;
+	border-color: red;
+	width: 24px;
+}
+
+.button-less button:focus-visible {
+	border: 4px solid blue;
+}
+
+.inactive button {
+	background-color: lightcoral;
+	border-color: lightcoral;
+}
+
+.item-number {
+	background-color: lightgray;
+	border-radius: 4px;
+	width: 24px;
+	text-align: center;
+}
+
+.button-more button {
+	background-color: green;
+	color: white;
+	border-radius: 10px;
+	border-color: green;
+	width: 24px;
+}
+
+.button-more button:focus-visible {
+	border: 4px solid blue;
+}
+
+.button-bought {
+	text-align: right;
+}
+
+.button-bought button {
+	border-radius: 4px;
+	border-color: lightgray;
+}
+
+.button-bought button:focus-visible {
+	border: 4px solid blue;
+}
+
+.button-bought .cancel {
+	background-color: red;
+	color: white;
+	border-color: red;
+}
+
+.button-bought .cancel:focus-visible {
+	border: 4px solid blue;
+}
+
+.result-text {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.single-item {
 	display: inline-block;
-	height: 25px;
-	padding: 5px;
-	border-radius: 5px;
+	background-color: lightgray;
+	border-radius: 4px;
+	padding-top: 2px;
+	height: 24px;
 }
 
 .amount {
-	background-color: yellow;
+	background-color: orange;
 	border-radius: 10px;
 	
 	display: inline-block;
 	height: 20px;
 	width: 20px;
 	text-align: center;
+	color: white;
 }
