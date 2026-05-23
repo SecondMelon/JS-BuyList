@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кошик Волошановича</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
+	<script src="interactions.js" defer></script>
 </head>
 <body>
 	<header></header>
@@ -13,13 +14,11 @@
 			<segment class="items grid-segment">
 				<table class="first-main-box">
 					<thead>
-						<form>
-							<tr>
-								<th class="find-field"><label><input type="text" name="Назва товару" placeholder="Назва товару" required></label></th>
-								<!-- Я весь час думав, що ця кнопка відповідає за пошук і сортування, а не за додавання -->
-								<th class="find-button"><label><button type="submit" data-tooltip="Додати продукт (або знайти)">Додати</button></label></th>
-							</tr>
-						</form>
+						<tr>
+							<th class="find-field"><form><label><input type="text" name="Назва товару" placeholder="Назва товару" required></label>
+							<!-- Я весь час думав, що ця кнопка відповідає за пошук і сортування, а не за додавання -->
+							<label><button type="submit" class="find-button" data-tooltip="Додати продукт (або знайти)">Додати</button></label></form></th>
+						</tr>
 					</thead>
 					<tbody>
 						<tr>
@@ -34,14 +33,14 @@
 							<td class="button-less"><label><button data-tooltip="Зменшити кількість товару">-</button></label></td>
 							<td class="item-number">2</td>
 							<td class="button-more"><label><button data-tooltip="Збільшити кількість товару">+</button></label></td>
-							<td class="button-bought"><label><button class="bought-button" data-tooltip="Купити">Куплено</button></label><label><button class="cancel" data-tooltip="Якась кнопка з хрестиком">X</button></label></td>
+							<td class="button-bought"><label><button class="bought-button" data-tooltip="Купити">Куплено</button></label><label><button class="cancel" data-tooltip="Видалити пункт">X</button></label></td>
 						</tr>
 						<tr>
 							<td class="item-name"><label><input type="text" name="Новий товар" placeholder="Новий товар"></label></td>
 							<td class="button-less inactive"><label><button data-tooltip="Зменшити кількість товару">-</button></label></td>
 							<td class="item-number">1</td>
 							<td class="button-more"><label><button data-tooltip="Збільшити кількість товару">+</button></label></td>
-							<td class="button-bought"><label><button class="bought-button" data-tooltip="Купити">Куплено</button></label><label><button class="cancel" data-tooltip="Якась кнопка з хрестиком">X</button></label></td>
+							<td class="button-bought"><label><button class="bought-button" data-tooltip="Купити">Куплено</button></label><label><button class="cancel" data-tooltip="Видалити пункт">X</button></label></td>
 						</tr>
 					</tbody>
 				</table>
