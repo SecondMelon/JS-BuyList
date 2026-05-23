@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-const form = document.querySelector("form");
+const form = document.querySelector(".create-form");
 const input = form.querySelector("input");
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log(form);
-    console.log(input);
     const text = input.value.trim();
     if (!text) return;
 
@@ -89,6 +87,7 @@ document.addEventListener("click", (event) => {
     const button = event.target;
     if (button.closest(".cancel")) button.closest(".cancel").closest("tr").remove();
     if (button.closest(".bought-button") || button.closest(".not-bought-button")) toggleBought(button.closest("tr"));
+    if (button.closest(".item-name")) substitudeWithNameInputField(button.closest(".item-name"));
 })
 /* Старий варіант, який не підтримував оновлення сторінки
 document.querySelectorAll(".cancel").forEach(button => {
@@ -163,5 +162,26 @@ function toggleBought(itemObject) {
         itemObject.lastElementChild.appendChild(boughtButtonLabel);
         itemObject.lastElementChild.appendChild(cancelButtonLabel);
     }
+}
+
+function substitudeWithNameInputField(nameObject) {
+    const oldTextContent = nameObject.textContent;
+
+    const nameInput = document.createElement("input");
+    nameInput.setAttribute("type", "text");
+    nameInput.setAttribute("name", "Нова назва товару")
+
+    const nameLabel = document.createElement("label");
+    nameLabel.appendChild(nameInput);
+
+    nameObject.textContent = "";
+    nameObject.appendChild(nameLabel);
+
+    nameInput.focus();
+
+    nameInput.addEventListener("change", (event) => {
+        const newName = nameInput.value.trim();
+        nameObject.textContent = newName || oldTextContent;
+    })
 }
 });
