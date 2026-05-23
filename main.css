@@ -49,6 +49,10 @@ button:hover::after {
 }
 
 @media (max-width: 650px) {
+	header {
+		height: 0px;
+	}
+
 	.grid {
 		grid-template-columns: 1fr;
 	}
@@ -159,11 +163,13 @@ input[type="text"]:focus-visible {
 	border-radius: 4px;
 	padding-top: 2px;
 	height: 24px;
+	margin-right: 4px;
 }
 
 .amount {
 	background-color: orange;
 	border-radius: 10px;
+	margin-left: 4px;
 	
 	display: inline-block;
 	height: 20px;

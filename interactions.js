@@ -81,15 +81,20 @@ function addNewListElement(text) {
 
     const path = document.querySelector(".first-main-box tbody")
     path.appendChild(itemBlockTr);
+
+    updateSecondGridElement();
 }
 
 document.addEventListener("click", (event) => {
     const button = event.target;
-    if (button.closest(".cancel")) button.closest(".cancel").closest("tr").remove();
-    if (button.closest(".bought-button") || button.closest(".not-bought-button")) toggleBought(button.closest("tr"));
-    if (button.closest(".item-name")) substitudeWithNameInputField(button.closest(".item-name"));
-    if (button.closest(".button-less")) decItemNumber(button.closest(".button-less"));
-    if (button.closest(".button-more")) incItemNumber(button.closest(".button-more"));
+    if (button.closest(".cancel")) {
+        button.closest(".cancel").closest("tr").remove();
+        updateSecondGridElement();
+    }
+    else if (button.closest(".bought-button") || button.closest(".not-bought-button")) toggleBought(button.closest("tr"));
+    else if (button.closest(".item-name")) substitudeWithNameInputField(button.closest(".item-name"));
+    else if (button.closest(".button-less")) decItemNumber(button.closest(".button-less"));
+    else if (button.closest(".button-more")) incItemNumber(button.closest(".button-more"));
 })
 /* Старий варіант, який не підтримував оновлення сторінки
 document.querySelectorAll(".cancel").forEach(button => {
@@ -164,6 +169,8 @@ function toggleBought(itemObject) {
         itemObject.lastElementChild.appendChild(boughtButtonLabel);
         itemObject.lastElementChild.appendChild(cancelButtonLabel);
     }
+
+    updateSecondGridElement();
 }
 
 function substitudeWithNameInputField(nameObject) {
@@ -184,6 +191,7 @@ function substitudeWithNameInputField(nameObject) {
     nameInput.addEventListener("change", (event) => {
         const newName = nameInput.value.trim();
         nameObject.textContent = newName.length > 0 ? newName : oldTextContent;
+        updateSecondGridElement();
     })
 }
 
@@ -191,11 +199,43 @@ function decItemNumber(button) {
     if (button.classList.contains("inactive") || !button.firstElementChild) return;
     button.nextElementSibling.textContent--;
     if (button.nextElementSibling.textContent == 1) button.classList.add("inactive");
+    updateSecondGridElement();
 }
 
 function incItemNumber(button) {
     if (!button.firstElementChild) return;
     button.previousElementSibling.textContent++;
     if (button.previousElementSibling.textContent == 2) button.previousElementSibling.previousElementSibling.classList.remove("inactive");
+    updateSecondGridElement();
+}
+
+function updateSecondGridElement() {
+    const src = document.querySelector(".first-main-box").lastElementChild;
+    const itemsLeftList = document.querySelector(".items-left-list").firstElementChild;
+    const itemsBoughtList = document.querySelector(".items-bought-list").firstElementChild;
+
+    itemsLeftList.textContent = "";
+    itemsBoughtList.textContent = "";
+
+    src.querySelectorAll("tr").forEach(o => {
+        const amountSpan = document.createElement("span");
+        amountSpan.classList.add("amount");
+        amountSpan.textContent = o.lastElementChild.previousElementSibling.previousElementSibling.textContent;
+
+        const singleItemSpan = document.createElement("span");
+        singleItemSpan.classList.add("single-item");
+        singleItemSpan.textContent = o.querySelector(".item-name").textContent;
+        singleItemSpan.appendChild(amountSpan);
+
+        if (!o.firstElementChild.classList.contains("bought")) {
+            amountSpan.classList.add("result-number");
+            singleItemSpan.classList.add("left");
+            itemsLeftList.appendChild(singleItemSpan);
+        } else {
+            amountSpan.classList.add("result-bought-number");
+            singleItemSpan.classList.add("bought");
+            itemsBoughtList.appendChild(singleItemSpan);
+        }
+    })
 }
 });
