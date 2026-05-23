@@ -88,6 +88,8 @@ document.addEventListener("click", (event) => {
     if (button.closest(".cancel")) button.closest(".cancel").closest("tr").remove();
     if (button.closest(".bought-button") || button.closest(".not-bought-button")) toggleBought(button.closest("tr"));
     if (button.closest(".item-name")) substitudeWithNameInputField(button.closest(".item-name"));
+    if (button.closest(".button-less")) decItemNumber(button.closest(".button-less"));
+    if (button.closest(".button-more")) incItemNumber(button.closest(".button-more"));
 })
 /* Старий варіант, який не підтримував оновлення сторінки
 document.querySelectorAll(".cancel").forEach(button => {
@@ -181,7 +183,19 @@ function substitudeWithNameInputField(nameObject) {
 
     nameInput.addEventListener("change", (event) => {
         const newName = nameInput.value.trim();
-        nameObject.textContent = newName || oldTextContent;
+        nameObject.textContent = newName.length > 0 ? newName : oldTextContent;
     })
+}
+
+function decItemNumber(button) {
+    if (button.classList.contains("inactive") || !button.firstElementChild) return;
+    button.nextElementSibling.textContent--;
+    if (button.nextElementSibling.textContent == 1) button.classList.add("inactive");
+}
+
+function incItemNumber(button) {
+    if (!button.firstElementChild) return;
+    button.previousElementSibling.textContent++;
+    if (button.previousElementSibling.textContent == 2) button.previousElementSibling.previousElementSibling.classList.remove("inactive");
 }
 });
